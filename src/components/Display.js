@@ -10,7 +10,7 @@ const Display = ({ value }) => {
 }
 
 Display.propTypes = {
-    value: PropTypes.number
+    value: PropTypes.string
 }
 
 export default Display
