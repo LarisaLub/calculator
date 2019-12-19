@@ -1,31 +1,23 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { getOperationSymbol } from "../utils/getOperationSymbol"
 
-const HistoryDisplay = ({ history }) => {
+const HistoryDisplay = ({ history, setHistory }) => {
+
     return (
         <div className="history-display">
             {history.map(_ => {
-
                 return (
                     <div>
-                        <span>
-                            {
-                                _.prevValue
-                            }
-                        </span>
-                        <span>
-                            {_.typeActive}
-                        </span>
-                        <span>
-                            {_.currentValue}
-                        </span>
+                        <span> {_.prevValue}</span>
+                        <span>{getOperationSymbol(_.typeActive)}</span>
+                        <span> {_.currentValue}</span>
                         <span> = </span>
-                        <span>
-                            {_.result}
-                        </span>
+                        <span>{_.result}</span>
                     </div>
                 )
             })}
+            <button className="clear-history-button" onClick={() => setHistory([])} >CLEAR HISTORY </button>
         </div>
     )
 }

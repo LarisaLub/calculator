@@ -1,9 +1,9 @@
 export const calculateResult = (prevValue, currentValue, typeActive) => {
     switch (typeActive) {
-        case "PLUS":
+        case "SUM":
             { return (Number(currentValue) + Number(prevValue)) }
 
-        case "MINUS":
+        case "SUBSTRACT":
             { return (Number(prevValue) - Number(currentValue)) }
 
         case "DIVIDE":

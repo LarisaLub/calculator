@@ -1,13 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Button from 'react-bootstrap/Button'
+
 
 const OperationButtonPanel = ({ makeOperation }) => {
     const operations = [{
-        type: "PLUS", label: "+"
+        type: "SUM", label: "+"
     },
     {
-        type: "MINUS", label: "-"
+        type: "SUBSTRACT", label: "-"
     },
     {
         type: "DIVIDE", label: " / "
@@ -21,9 +21,9 @@ const OperationButtonPanel = ({ makeOperation }) => {
     }
     ]
     return (
-        <div>
+        <div className="operation-button-panel">
 
-            {operations.map((_) => (<Button variant="warning" key={_.type} onClick={() => { makeOperation(_.type) }}>{_.label}</Button>))
+            {operations.map((_) => (<button key={_.type} onClick={() => { makeOperation(_.type) }}>{_.label}</button>))
 
             }
         </div>

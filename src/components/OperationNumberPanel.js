@@ -1,12 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Button from 'react-bootstrap/Button'
 
-const OperationNumberPanel = ({ handleClick }) => {
+const OperationNumberPanel = ({ handleClick, children }) => {
     const values = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
     return (
-        <div>
-            {values.map(_ => (<Button variant="secondary" key={_} onClick={() => handleClick(_)}>{_}</Button>))}
+        <div className="operation-number-panel">
+            {values.map(_ => (<button key={_} onClick={() => handleClick(_)}>{_}</button>))}
+            {children}
         </div>
     )
 }

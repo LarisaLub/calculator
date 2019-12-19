@@ -4,17 +4,25 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Display from "./components/Display";
 import OperationNumberPanel from "./components/OperationNumberPanel";
 import OperationButtonPanel from "./components/OperationButtonPanel";
-import Button from 'react-bootstrap/Button'
 import { calculateResult } from "./utils/getResult"
 import HistoryDisplay from "./components/HistoryDisplay"
+
+
 function App() {
   const [currentValue, setCurrentValue] = useState("0")
   const [prevValue, setPrevValue] = useState("")
   const [typeActive, setTypeActive] = useState("")
   const [history, setHistory] = useState([])
+  const [isShowHistory, setIsShowHistory] = useState(false)
 
   const makeOperation = (action) => {
     setTypeActive(action)
+  }
+
+  const cancelLastValue = () => {
+    let result = currentValue.split("")
+    result.splice(-1, 1)
+    setCurrentValue(result.join(""))
   }
 
   const changeValue = (result) => {
@@ -43,17 +51,23 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <header>
-        <p>Calculator</p>
-
-      </header>
+    <div className="box">
       <Display value={currentValue} />
-      <OperationNumberPanel handleClick={changeValue} />
-      <OperationButtonPanel makeOperation={makeOperation} />
-      <Button variant="primary" onClick={getResult}>=</Button>
-      <Button variant="info" onClick={clearValues}>C</Button>
-      <HistoryDisplay history={history} />
+      <div className="flex-box">
+        <div className="left-col">
+          <button onClick={getResult}>=</button>
+          <button onClick={clearValues}>C</button>
+          <button onClick={cancelLastValue}>AC</button>
+
+          <OperationNumberPanel handleClick={changeValue}>
+
+            <button className="history-button" onClick={() => setIsShowHistory(!isShowHistory)}>{isShowHistory ? "HIDE" : "SHOW"} HISTORY</button>
+          </OperationNumberPanel>
+        </div>
+        <OperationButtonPanel makeOperation={makeOperation} />
+      </div>
+
+      {isShowHistory && (<HistoryDisplay history={history} setHistory={setHistory} />)}
     </div>
   );
 }
