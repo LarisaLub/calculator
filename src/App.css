@@ -1,50 +1,55 @@
 .box{
+  padding-top: 150px;
   text-align: center;
   width: 400px;
   margin:0 auto;
-}
+  }
 
 .flex-box{
-  display: flex;
+ display: flex;
+ border: 2px solid black;
 }
+
 .left-col{
   width: 75%;
+}
 
-}
-.operation-number-panel{
-}
 .left-col button{
 padding: 15px 0;
  display: inline-block;
  width: 33.3%;
- 
+ font-size: 22px;
 }
+
 .operation-button-panel{
   width: 25%;
- 
+  font-size: 22px;
 }
+
 .history-button {
   width: 66.6% !important;
 }
+
 .operation-button-panel button{
   display: block;
   width: 100%;
   padding: 15px 0;
-
-
+  font-size: 22px;
 }
-.main-display{
 
-  background-color:  rgb(230, 240, 239);
-  color: whitesmoke;
-  height: 57px;
-  padding-left: 150px;
+.main-display{
+  background-color:  whitesmoke;
+  border: 3px solid black;
+  color:  #282c34;
+  height: 77px;
+  padding-top: 14px;
+  font-size: 32px;
 }
 
 .history-display {
-
-  background-color: rgb(230, 240, 239);
+  background-color: whitesmoke;
   color: #282c34;
   height: 57px;
   padding-left: 150px;
+  font-size: 22px;
 }
