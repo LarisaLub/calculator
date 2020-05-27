@@ -55,9 +55,9 @@ function App() {
       <Display value={currentValue} />
       <div className="flex-box">
         <div className="left-col">
-          <button onClick={getResult}>=</button>
-          <button onClick={clearValues}>C</button>
-          <button onClick={cancelLastValue}>AC</button>
+          <button className="result" onClick={getResult}>=</button>
+          <button className="result" onClick={clearValues}>C</button>
+          <button className="result" onClick={cancelLastValue}>AC</button>
 
           <OperationNumberPanel handleClick={changeValue}>
 
